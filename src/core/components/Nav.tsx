@@ -23,7 +23,7 @@ const Wrap = styled.nav`
 
   & > div {
     ${getFlex()}
-    gap: 2rem;
+    gap: 2.2rem;
   }
 `
 
