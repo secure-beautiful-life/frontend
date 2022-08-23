@@ -31,6 +31,9 @@ export const Th = styled.th`
 
 export const Tbody = styled.tbody`
   ${getFlex({ dir: 'column', jc: 'space-between', ai: 'center' })}
+  div {
+    width: 100%;
+  }
 `
 
 export const Td = styled.td`
@@ -55,4 +58,26 @@ export const Tr = styled.tr`
   &:last-child {
     border-bottom: none;
   }
+`
+
+export const DeleteBtn = styled.button`
+  padding: 0.4rem 2.5rem;
+  border: none;
+  background-color: #ffe0e0;
+  color: #d30000;
+  border-radius: 1.5rem;
+`
+
+export const UpdateBtn = styled.button`
+  padding: 0.4rem 2.5rem;
+  border: none;
+  background-color: #cdffcd;
+  color: #007f00;
+  border-radius: 1.5rem;
+`
+
+export const TriggerText = styled.span`
+  color: #4a4aff;
+  text-decoration: underline;
+  cursor: pointer;
 `

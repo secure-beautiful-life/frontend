@@ -5,6 +5,7 @@ import { TAB } from './constant'
 import User from './components/User'
 import Hierarchy from './components/Hierarchy'
 import Resource from './components/Resource'
+import Role from './components/Role'
 
 export default function Main() {
   const [tab, setTab] = useState<I.Tab>('user')
@@ -19,6 +20,7 @@ export default function Main() {
         ))}
       </UI.Tab>
       {tab === 'user' && <User />}
+      {tab === 'role' && <Role />}
       {tab === 'hierarchy' && <Hierarchy />}
       {tab === 'resource' && <Resource />}
     </UI.Wrap>

@@ -1,13 +1,23 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import { getFlex } from '../util/styles/display'
 
 export default function Nav() {
+  const [isLogin, setIsLogin] = useState(false)
+
+  const onLogin = () => {
+    setIsLogin(true)
+  }
+  const onLogout = () => {
+    setIsLogin(false)
+  }
+
   return (
     <Wrap>
       <span>Admin Logo</span>
       <div>
-        <Btn>로그아웃</Btn>
-        <Btn>HOME</Btn>
+        <Btn>쇼핑몰로 이동하기</Btn>
+        {isLogin ? <Btn onClick={onLogout}>로그아웃</Btn> : <Btn onClick={onLogin}>로그인</Btn>}
       </div>
     </Wrap>
   )
@@ -23,7 +33,11 @@ const Wrap = styled.nav`
 
   & > div {
     ${getFlex()}
-    gap: 2.2rem;
+    gap: 2.3rem;
+  }
+
+  button:last-child {
+    width: 10rem;
   }
 `
 
@@ -32,4 +46,7 @@ const Btn = styled.button`
   padding: 1rem 2rem;
   border-radius: 1.2rem;
   cursor: pointer;
+  &:hover {
+    background-color: #f4f2ff;
+  }
 `

@@ -2,10 +2,11 @@ import { useState } from 'react'
 import Modal from '../../../core/components/modal/Modal'
 import * as UI from '../../../core/components/table/style'
 import { useModal } from '../../../core/util/hooks/useModal'
-import { _user } from '../_dummy'
+import { Btn } from '../style'
+import { _resource } from '../_dummy'
 import { DeleteModal } from './modal/DeleteModal'
 
-export default function User() {
+export default function Role() {
   const { isModal, setIsModal } = useModal()
   const [modalType, setModalType] = useState('')
 
@@ -19,29 +20,28 @@ export default function User() {
       <UI.Table>
         <UI.Thead>
           <UI.Tr>
-            <UI.Th>이름</UI.Th>
-            <UI.Th>이메일</UI.Th>
-            <UI.Th>나이</UI.Th>
-            <UI.Th>권한</UI.Th>
-            <UI.Th>삭제</UI.Th>
+            <UI.Th>리소스명</UI.Th>
+            <UI.Th>리소스타입</UI.Th>
+            <UI.Th>HttpMethod</UI.Th>
+            <UI.Th>순서</UI.Th>
+            <UI.Th>수정</UI.Th>
           </UI.Tr>
         </UI.Thead>
         <UI.Tbody>
-          {_user.cellList.map((cell) => (
+          {_resource.cellList.map((cell) => (
             <UI.Tr key={cell.name}>
-              <UI.Td>
-                <UI.TriggerText onClick={onSetIsModal('user')}>{cell.name}</UI.TriggerText>
-              </UI.Td>
-              <UI.Td>{cell.email}</UI.Td>
-              <UI.Td>{cell.age}</UI.Td>
-              <UI.Td>{cell.role}</UI.Td>
+              <UI.Td>{cell.name}</UI.Td>
+              <UI.Td>{cell.type}</UI.Td>
+              <UI.Td>{cell.httpMethod}</UI.Td>
+              <UI.Td>{cell.order}</UI.Td>
               <UI.Th>
-                <UI.DeleteBtn onClick={onSetIsModal('delete')}>삭제</UI.DeleteBtn>
+                <UI.UpdateBtn onClick={onSetIsModal('update')}>수정</UI.UpdateBtn>
               </UI.Th>
             </UI.Tr>
           ))}
         </UI.Tbody>
       </UI.Table>
+      <Btn>권한 등록</Btn>
       {isModal && (
         <Modal
           clickDimmed={() => setIsModal(false)}
@@ -49,17 +49,13 @@ export default function User() {
           height="28rem"
           children={
             modalType === 'delete' ? (
-              <DeleteModal content="유저를 삭제하시겠습니까?" onDelete={() => {}} onCancel={() => setIsModal(false)} />
+              <DeleteModal content="권한을 삭제하시겠습니까?" onDelete={() => {}} onCancel={() => setIsModal(false)} />
             ) : (
-              <UserModal userData={''} />
+              <div>수정 모달</div>
             )
           }
         />
       )}
     </>
   )
-}
-
-export const UserModal = (userData: any) => {
-  return <div>유저 데이터</div>
 }

@@ -1,5 +1,4 @@
 export const _user = {
-  headList: [{ name: '이름' }, { email: '이메일' }, { age: '나이' }, { role: '권한' }],
   cellList: [
     {
       name: 'user',
@@ -20,16 +19,16 @@ export const _hierarchy = {
   headList: [{ role: '권한' }, { parentRole: '부모 권한' }],
   cellList: [
     {
+      id: 'a',
       role: 'ROLE_ADMIN',
-      parentRole: '',
     },
     {
+      id: 'b',
       role: 'ROLE_MANAGER',
-      parentRole: 'ROLE_ADMIN',
     },
     {
+      id: 'c',
       role: 'ROLE_USER',
-      parentRole: 'ROLE_MANAGER',
     },
   ],
 }

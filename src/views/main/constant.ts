@@ -5,5 +5,4 @@ export const TAB: BasicObjectType = {
   role: '권한 관리',
   resource: '리소스 관리',
   hierarchy: '권한 계층 관리',
-  ip: 'ip 관리',
 }
