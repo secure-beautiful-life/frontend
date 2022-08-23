@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { ReactSortable } from 'react-sortablejs'
 
 export default function Hierarchy() {
-  const [cellList, setCellList] = useState(_hierarchy.cellList)
+  const [cellList, setCellList] = useState(_hierarchy.cellList.slice(1, _hierarchy.cellList.length))
 
   return (
     <>
@@ -16,6 +16,9 @@ export default function Hierarchy() {
           </UI.Tr>
         </UI.Thead>
         <UI.Tbody>
+          <UI.Tr>
+            <UI.Td>{_hierarchy.cellList[0].role}</UI.Td>
+          </UI.Tr>
           <ReactSortable list={cellList} setList={setCellList} animation={200}>
             {cellList.map((cell, idx) => (
               <UI.Tr key={idx}>
