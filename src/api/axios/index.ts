@@ -21,9 +21,9 @@ const requestError = (err: AxiosError) => {
   return Promise.reject(err)
 }
 
-const responseSuccess = (res: AxiosResponse) => {
-  return res
-}
+// const responseSuccess = (res: AxiosResponse) => {
+//   return res
+// }
 // const responseError = (err: AxiosError) => {auth error일 때 처리 필요}
 
 axiosInstance.interceptors.request.use(requestSuccess, requestError)
