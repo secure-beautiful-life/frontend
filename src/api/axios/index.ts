@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
+import axios, { AxiosError, AxiosInstance, AxiosRequestConfig } from 'axios'
 
 export const BASE_URL = 'https://8000.taewonkim.com/api'
 
