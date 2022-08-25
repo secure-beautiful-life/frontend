@@ -18,3 +18,8 @@ export const sliceLetter = (content: any, limit: number) => {
   }
   return content
 }
+
+export const inheritSize = `
+  width: 100%;
+  height: 100%;
+`
